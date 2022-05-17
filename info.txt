@@ -1,0 +1,25 @@
+트위터 계정
+
+id = sth3353@naver.com
+pw = sock1311
+
+Developer Platform
+https://developer.twitter.com
+
+API Key
+mFSTmCgYpkJOHgxOBvXwUKd9e
+
+API Key Secret
+yKVRlXhoOfpxnEDZiXXEG6utoucxaFfOg3iZT7KjHNgNG1WCtX
+
+Bearer Token
+AAAAAAAAAAAAAAAAAAAAACC6cgEAAAAA5u1MSkCI7OuIP0fWqtovHuIqXNo%3DfmYCWxo6X57vj8rVqr80LeQ1yEGi570YOnPjmSvRaVyuJgkd79
+
+Access Token
+1526031953949913088-pa3l7qOLn3mxC6u9PgmVuA2VJFIZb2
+
+Access Token Secret
+5MXnPDeZN6vKQ2TIGADgusQrCHc5GOuKvrqDO83bS96jw
+
+=================================================================
+
