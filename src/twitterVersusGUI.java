@@ -1,5 +1,5 @@
-public class twitterVersusGUI {
-    public static String getFirstUserHandle() {
-        //get first user handle
-    }
-}
+//public class twitterVersusGUI {
+//    public static String getFirstUserHandle() {
+//        //get first user handle
+//    }
+//}

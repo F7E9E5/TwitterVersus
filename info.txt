@@ -7,19 +7,25 @@ Developer Platform
 https://developer.twitter.com
 
 API Key
-mFSTmCgYpkJOHgxOBvXwUKd9e
+Wc92XMzIp7si83vdXUKl43Oa4
 
 API Key Secret
-yKVRlXhoOfpxnEDZiXXEG6utoucxaFfOg3iZT7KjHNgNG1WCtX
+DpoLx4imLFoT6ZgSpB52CKRnxrXGGlpZWGMQMBWMJpRHEzixDz
 
 Bearer Token
-AAAAAAAAAAAAAAAAAAAAACC6cgEAAAAA5u1MSkCI7OuIP0fWqtovHuIqXNo%3DfmYCWxo6X57vj8rVqr80LeQ1yEGi570YOnPjmSvRaVyuJgkd79
+AAAAAAAAAAAAAAAAAAAAAGUIcwEAAAAAu7WhRSQxqM%2F0C6RE4T8Qr2De76o%3DfeaCeFm6yKjZysgpdb9yIO1U8Z6JEqalYLFrnCZ7FWVwnjTlA8
 
 Access Token
-1526031953949913088-pa3l7qOLn3mxC6u9PgmVuA2VJFIZb2
+1526031953949913088-dkW5JN6ShCVaakGwMgGv4hqZDMLPC7
 
 Access Token Secret
-5MXnPDeZN6vKQ2TIGADgusQrCHc5GOuKvrqDO83bS96jw
+Q9Z8pTOtmbzGl3KvsaxgX2rFsr8neplkwv0zxmHyZcceX
+
+Client ID
+YnZ1U3VMR2pRX1dETVdWNVQ5a0k6MTpjaQ
+
+Client Secret
+ys7qsuDp5aYfRVu1QFtSRc7ciNkrx4esNlrX17ZIWNEbT0SRRk
 
 =================================================================
 
