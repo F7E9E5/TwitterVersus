@@ -10,9 +10,10 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MyFrame extends Component implements ActionListener {
     JFrame mainFrame = new JFrame("Twitter Versus");
@@ -55,24 +56,23 @@ public class MyFrame extends Component implements ActionListener {
 
         //returnButton
         returnButton = new JButton("return");
-        returnButton.addActionListener(this::actionPerformed);
+        returnButton.addActionListener(this);
         returnButton.setPreferredSize(new Dimension(100, 60));
-        GridBagConstraints returnButtongbc = new GridBagConstraints();
-        returnButtongbc.gridx = 1;
-        returnButtongbc.gridy = 2;
-        homePanel.add(returnButton, returnButtongbc);
+        GridBagConstraints returnButtonGbc = new GridBagConstraints();
+        returnButtonGbc.gridx = 1;
+        returnButtonGbc.gridy = 2;
+        homePanel.add(returnButton, returnButtonGbc);
         returnButton.setVisible(true);
 
         //invalidText
         invalidText.setFont(invalidFont);
         invalidText.setForeground(Color.red);
         invalidText.setText("Invalid input, Please retry");
-        GridBagConstraints invalidTextgbc = new GridBagConstraints();
-        invalidTextgbc.gridx = 1;
-        invalidTextgbc.gridy = 3;
-        homePanel.add(invalidText, invalidTextgbc);
+        GridBagConstraints invalidTextGbc = new GridBagConstraints();
+        invalidTextGbc.gridx = 1;
+        invalidTextGbc.gridy = 3;
+        homePanel.add(invalidText, invalidTextGbc);
         invalidText.setVisible(false);
-
 
         homePanel.setVisible(true);
         mainFrame.pack();
@@ -90,73 +90,129 @@ public class MyFrame extends Component implements ActionListener {
         mainFrame.add(resultPanel);
 
         //back button
-        backButton.addActionListener(this::actionPerformed);
+        backButton.addActionListener(this);
         backButton.setPreferredSize(new Dimension(70, 30));
-        GridBagConstraints backButtongbc = new GridBagConstraints();
-        backButtongbc.gridy = 0;
-        backButtongbc.gridx = 0;
-        resultPanel.add(backButton, backButtongbc);
+        GridBagConstraints backButtonGbc = new GridBagConstraints();
+        backButtonGbc.insets = new Insets(5, 10, 0, 10);
+        backButtonGbc.gridy = 0;
+        backButtonGbc.gridx = 0;
+        resultPanel.add(backButton, backButtonGbc);
         backButton.setVisible(true);
+
+        //User declaration
+        User firstUser = twitter.showUser(firstUserHandle);
+        User secondUser = twitter.showUser(secondUserHandle);
+
+        JLabel firstUserNameLabel = new JLabel(firstUser.getName());
+        firstUserNameLabel.setFont(font);
+        GridBagConstraints firstUserNameLabelGbc = new GridBagConstraints();
+        firstUserNameLabelGbc.gridy = 0;
+        firstUserNameLabelGbc.gridx = 1;
+        resultPanel.add(firstUserNameLabel, firstUserNameLabelGbc);
+        firstUserNameLabel.setVisible(true);
+
+        JLabel secondUserNameLabel = new JLabel(secondUser.getName());
+        secondUserNameLabel.setFont(font);
+        GridBagConstraints secondUserNameLabelGbc = new GridBagConstraints();
+        secondUserNameLabelGbc.gridy = 0;
+        secondUserNameLabelGbc.gridx = 3;
+        resultPanel.add(secondUserNameLabel, secondUserNameLabelGbc);
+        secondUserNameLabel.setVisible(true);
+
+        //vs
+        JLabel vsText = new JLabel("VS");
+        vsText.setFont(font);
+        vsText.setHorizontalAlignment(JLabel.CENTER);
+        vsText.setPreferredSize(new Dimension(100, 30));
+        GridBagConstraints vsTextGbc = new GridBagConstraints();
+        vsTextGbc.gridy = 0;
+        vsTextGbc.gridx = 2;
+        resultPanel.add(vsText, vsTextGbc);
+        vsText.setVisible(true);
 
         //first user handle
         JLabel firstUserHandleLabel = new JLabel(firstUserHandle);
         firstUserHandleLabel.setFont(font);
         firstUserHandleLabel.setHorizontalAlignment(JLabel.CENTER);
         firstUserHandleLabel.setPreferredSize(new Dimension(200, 30));
-        GridBagConstraints firstUserHandleLabelgbc = new GridBagConstraints();
-        firstUserHandleLabelgbc.gridy = 0;
-        firstUserHandleLabelgbc.gridx = 1;
-        resultPanel.add(firstUserHandleLabel, firstUserHandleLabelgbc);
+        GridBagConstraints firstUserHandleLabelGbc = new GridBagConstraints();
+        firstUserHandleLabelGbc.insets = new Insets(5, 10, 0, 10);
+        firstUserHandleLabelGbc.gridy = 1;
+        firstUserHandleLabelGbc.gridx = 1;
+        resultPanel.add(firstUserHandleLabel, firstUserHandleLabelGbc);
         firstUserHandleLabel.setVisible(true);
-
-        JLabel vsText = new JLabel("VS");
-        vsText.setFont(font);
-        vsText.setHorizontalAlignment(JLabel.CENTER);
-        vsText.setPreferredSize(new Dimension(100, 30));
-        GridBagConstraints vsTextgbc = new GridBagConstraints();
-        vsTextgbc.gridy = 0;
-        vsTextgbc.gridx = 2;
-        resultPanel.add(vsText, vsTextgbc);
-        vsText.setVisible(true);
 
         //second user handle
         JLabel secondUserHandleLabel = new JLabel(secondUserHandle);
-        int secondUserHandleLength = secondUserHandle.length();
         secondUserHandleLabel.setFont(font);
         secondUserHandleLabel.setHorizontalAlignment(JLabel.CENTER);
         secondUserHandleLabel.setPreferredSize(new Dimension(200, 30));
-        GridBagConstraints secondUserHandleLabelgbc = new GridBagConstraints();
-        secondUserHandleLabelgbc.gridy = 0;
-        secondUserHandleLabelgbc.gridx = 3;
-        resultPanel.add(secondUserHandleLabel, secondUserHandleLabelgbc);
+        GridBagConstraints secondUserHandleLabelGbc = new GridBagConstraints();
+        secondUserHandleLabelGbc.insets = new Insets(5, 10, 0, 10);
+        secondUserHandleLabelGbc.gridy = 1;
+        secondUserHandleLabelGbc.gridx = 3;
+        resultPanel.add(secondUserHandleLabel, secondUserHandleLabelGbc);
         secondUserHandleLabel.setVisible(true);
 
+        JLabel row0padding = new JLabel();
+        row0padding.setPreferredSize(backButton.getPreferredSize());
+        GridBagConstraints row0paddingGbc = new GridBagConstraints();
+        row0paddingGbc.gridy = 0;
+        row0paddingGbc.gridx = 4;
+        resultPanel.add(row0padding, row0paddingGbc);
+        row0padding.setVisible(true);
+
         //user profile image
-        User firstUser = twitter.showUser(firstUserHandle);
         BufferedImage firstUserProfileImage = ImageIO.read(new URL(firstUser.get400x400ProfileImageURLHttps()));
         Image resizedFirstUserProfileImage = firstUserProfileImage.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
         JLabel firstUserProfileImageLabel = new JLabel(new ImageIcon(resizedFirstUserProfileImage));
         firstUserProfileImageLabel.setPreferredSize(new Dimension(200, 200));
-        GridBagConstraints firstUserProfileImageLabelgbc = new GridBagConstraints();
-        firstUserProfileImageLabelgbc.gridy = 1;
-        firstUserProfileImageLabelgbc.gridx = 1;
-        resultPanel.add(firstUserProfileImageLabel, firstUserProfileImageLabelgbc);
+        GridBagConstraints firstUserProfileImageLabelGbc = new GridBagConstraints();
+        firstUserProfileImageLabelGbc.gridy = 2;
+        firstUserProfileImageLabelGbc.gridx = 1;
+        resultPanel.add(firstUserProfileImageLabel, firstUserProfileImageLabelGbc);
         firstUserProfileImageLabel.setVisible(true);
 
-        User secondUser = twitter.showUser(secondUserHandle);
         BufferedImage secondUserProfileImage = ImageIO.read(new URL(secondUser.get400x400ProfileImageURLHttps()));
         Image resizedSecondUserProfileImage = secondUserProfileImage.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
         JLabel secondUserProfileImageLabel = new JLabel(new ImageIcon(resizedSecondUserProfileImage));
         secondUserProfileImageLabel.setPreferredSize(new Dimension(200, 200));
-        GridBagConstraints secondUserProfileImageLabelgbc = new GridBagConstraints();
-        secondUserProfileImageLabelgbc.gridy = 1;
-        secondUserProfileImageLabelgbc.gridx = 3;
-        resultPanel.add(secondUserProfileImageLabel, secondUserProfileImageLabelgbc);
+        GridBagConstraints secondUserProfileImageLabelGbc = new GridBagConstraints();
+        secondUserProfileImageLabelGbc.gridy = 2;
+        secondUserProfileImageLabelGbc.gridx = 3;
+        resultPanel.add(secondUserProfileImageLabel, secondUserProfileImageLabelGbc);
         secondUserProfileImageLabel.setVisible(true);
 
-        //user twitter domain
+        //created date
+        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-        //make day, birthday, region
+        JLabel createdText = new JLabel("Created at");
+        createdText.setFont(font);
+        GridBagConstraints createdTextGbc = new GridBagConstraints();
+        createdTextGbc.gridy = 3;
+        createdTextGbc.gridx = 0;
+        resultPanel.add(createdText, createdTextGbc);
+        createdText.setVisible(true);
+
+        Date firstUserCreated = firstUser.getCreatedAt();
+        JLabel firstUserCreatedLabel = new JLabel(transFormat.format(firstUserCreated));
+        firstUserCreatedLabel.setFont(font);
+        GridBagConstraints firstUserCreatedLabelGbc = new GridBagConstraints();
+        firstUserCreatedLabelGbc.gridy = 3;
+        firstUserCreatedLabelGbc.gridx = 1;
+        resultPanel.add(firstUserCreatedLabel, firstUserCreatedLabelGbc);
+        firstUserCreatedLabel.setVisible(true);
+
+        Date secondUserCreated = secondUser.getCreatedAt();
+        JLabel secondUserCreatedLabel = new JLabel(transFormat.format(secondUserCreated));
+        secondUserCreatedLabel.setFont(font);
+        GridBagConstraints secondUserCreatedLabelGbc = new GridBagConstraints();
+        secondUserCreatedLabelGbc.gridy = 3;
+        secondUserCreatedLabelGbc.gridx = 3;
+        resultPanel.add(secondUserCreatedLabel, secondUserCreatedLabelGbc);
+        secondUserCreatedLabel.setVisible(true);
+
+        //birthday, region
 
         //follower graph
 
@@ -177,7 +233,9 @@ public class MyFrame extends Component implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == returnButton) {
-            String a = "sontaeho15", b = "KR_BlueArchive";
+            String a, b;
+            a = "Hoshino_Sleep";
+            b = "KR_BlueArchive";
 //            try {
 //                a = firstUserHandleInput.getText();
 //                b = secondUserHandleInput.getText();
@@ -212,19 +270,19 @@ public class MyFrame extends Component implements ActionListener {
         firstUserHandleInput = new JTextField("First User Handle");
         firstUserHandleInput.setFont(font);
         firstUserHandleInput.setPreferredSize(new Dimension(200, 30));
-        GridBagConstraints firstgbc = new GridBagConstraints();
-        firstgbc.gridx = 0;
-        firstgbc.gridy = 0;
-        homePanel.add(firstUserHandleInput, firstgbc);
+        GridBagConstraints firstGbc = new GridBagConstraints();
+        firstGbc.gridx = 0;
+        firstGbc.gridy = 0;
+        homePanel.add(firstUserHandleInput, firstGbc);
         firstUserHandleInput.setVisible(true);
 
         secondUserHandleInput = new JTextField("Second User Handle");
         secondUserHandleInput.setFont(font);
         secondUserHandleInput.setPreferredSize(new Dimension(200, 30));
-        GridBagConstraints secondgbc = new GridBagConstraints();
-        secondgbc.gridx = 2;
-        secondgbc.gridy = 0;
-        homePanel.add(secondUserHandleInput, secondgbc);
+        GridBagConstraints secondGbc = new GridBagConstraints();
+        secondGbc.gridx = 2;
+        secondGbc.gridy = 0;
+        homePanel.add(secondUserHandleInput, secondGbc);
         secondUserHandleInput.setVisible(true);
     }
 }
