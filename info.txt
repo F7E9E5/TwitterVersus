@@ -1,31 +1,10 @@
-트위터 계정
-
 id = sth3353@naver.com
 pw = sock1311
 
-Developer Platform
-https://developer.twitter.com
-
-API Key
-Wc92XMzIp7si83vdXUKl43Oa4
-
-API Key Secret
-DpoLx4imLFoT6ZgSpB52CKRnxrXGGlpZWGMQMBWMJpRHEzixDz
-
-Bearer Token
-AAAAAAAAAAAAAAAAAAAAAGUIcwEAAAAAu7WhRSQxqM%2F0C6RE4T8Qr2De76o%3DfeaCeFm6yKjZysgpdb9yIO1U8Z6JEqalYLFrnCZ7FWVwnjTlA8
-
-Access Token
-1526031953949913088-dkW5JN6ShCVaakGwMgGv4hqZDMLPC7
-
-Access Token Secret
-Q9Z8pTOtmbzGl3KvsaxgX2rFsr8neplkwv0zxmHyZcceX
-
-Client ID
-YnZ1U3VMR2pRX1dETVdWNVQ5a0k6MTpjaQ
-
-Client Secret
-ys7qsuDp5aYfRVu1QFtSRc7ciNkrx4esNlrX17ZIWNEbT0SRRk
-
-=================================================================
-
+API Key = Wc92XMzIp7si83vdXUKl43Oa4
+API Key Secret = DpoLx4imLFoT6ZgSpB52CKRnxrXGGlpZWGMQMBWMJpRHEzixDz
+Bearer Toke = AAAAAAAAAAAAAAAAAAAAAGUIcwEAAAAAu7WhRSQxqM%2F0C6RE4T8Qr2De76o%3DfeaCeFm6yKjZysgpdb9yIO1U8Z6JEqalYLFrnCZ7FWVwnjTlA8
+Access Token = 1526031953949913088-dkW5JN6ShCVaakGwMgGv4hqZDMLPC7
+Access Token Secret = Q9Z8pTOtmbzGl3KvsaxgX2rFsr8neplkwv0zxmHyZcceX
+Client ID = YnZ1U3VMR2pRX1dETVdWNVQ5a0k6MTpjaQ
+Client Secret = ys7qsuDp5aYfRVu1QFtSRc7ciNkrx4esNlrX17ZIWNEbT0SRRk
