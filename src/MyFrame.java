@@ -33,14 +33,12 @@ public class MyFrame extends Component implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == homePanel.returnButton) {
             String a, b;
-            a = "Hoshino_Sleep";
-            b = "KR_BlueArchive";
-//            try {
-//                a = homePanel.firstUserHandleInput.getText();
-//                b = homePanel.secondUserHandleInput.getText();
-//            } catch (NullPointerException ex) {
-//                a = b = "";
-//            }
+            try {
+                a = homePanel.firstUserHandleInput.getText();
+                b = homePanel.secondUserHandleInput.getText();
+            } catch (NullPointerException ex) {
+                a = b = "";
+            }
 
             try {
                 homePanel.checkHandle(a, b);

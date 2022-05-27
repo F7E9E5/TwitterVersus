@@ -1,16 +1,14 @@
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 import static java.lang.Math.max;
 
 public class myGraph extends JLabel {
-    private int firstValue, secondValue;
+    final private int firstValue, secondValue;
     myGraph(int first, int second) {
         firstValue = first;
         secondValue = second;
-        setPreferredSize(new Dimension(500, 50));
+        setPreferredSize(new Dimension(500, 20));
     }
 
     public void paint(Graphics g) {
@@ -25,7 +23,7 @@ public class myGraph extends JLabel {
         }
         double aa = max(0.006, (double)a/Math.pow(10, cnt));
         double bb = max(0.006, (double)b/Math.pow(10, cnt));
-        g.fillRect((int)(200*(1 - aa)), 15, (int)(200*aa), 20);
-        g.fillRect(300, 15, (int)(200*bb), 20);
+        g.fillRect((int)(200*(1 - aa)), 0, (int)(200*aa), 20);
+        g.fillRect(300, 0, (int)(200*bb), 20);
     }
 }
